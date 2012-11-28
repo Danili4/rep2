@@ -1,14 +1,12 @@
 #include "eval.h"
-
 double etaTwoRecognition(double etaTwoStar, double k)
 {
         return (etaTwoStar * (k * (log10(etaTwoStar)/log10(2.0)) + 1.0));
 }
-
 double annTwoRecognition(double alpha, double etaTwo,
             double mu, double delta, double step)
 {
-        double annTwo = 300.0;
+        double annTwo = 350.0;
         double difference;
         double a = 1.0 - (log10(alpha)) / (log10(1.0 + alpha));
         double b = 2.0 * (log10(annTwo)) / (log10(1.0 + alpha));
@@ -40,12 +38,10 @@ double annTwoRecognition(double alpha, double etaTwo,
         }
         return tempAnnTwo;
 }
-
 double annRecognition(double annTwo, double alpha)
 {
         return ((alpha+1.0)/alpha)*annTwo;
 }
-
 double etaOneRecognition(double annTwo, double alpha, double delta, double step)
 {
         double etaOne = 100.0;
@@ -74,12 +70,10 @@ double etaOneRecognition(double annTwo, double alpha, double delta, double step)
         }
         return tempEtaOne;
 }
-
 double vRecognition(double ann, double etaOne, double etaTwo)
 {
         return ann*log10(etaOne+etaTwo)/log10(2.0);
 }
-
 double tRecognition(double v, double mu, double s)
 {
         return v*mu/s;

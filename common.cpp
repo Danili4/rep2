@@ -1,5 +1,4 @@
 #include "common.h"
-
 HWND Window(LPCWSTR szWindowClass,LPCWSTR szTitle,LRESULT (CALLBACK *pWndProc)(HWND,UINT,WPARAM,LPARAM),
 			int width,int height,HINSTANCE hInstance,int nCmdShow)
 {
@@ -33,7 +32,6 @@ HWND Window(LPCWSTR szWindowClass,LPCWSTR szTitle,LRESULT (CALLBACK *pWndProc)(H
 	UpdateWindow(hWnd);
 	return hWnd;
 }
-
 HWND EditBox(HWND hWnd,DWORD dwStyle,LPCWSTR lpszText,int x,int y,
 			int width,int height)
 {
@@ -43,7 +41,6 @@ HWND EditBox(HWND hWnd,DWORD dwStyle,LPCWSTR lpszText,int x,int y,
  SendMessage(hEdit,WM_SETTEXT,0,(LPARAM)lpszText);
  return hEdit;
 }
-
 HWND Text(HWND hWnd,DWORD dwStyle,LPCWSTR lpszText,int x,int y,
 			int width,int height)
 {
@@ -52,7 +49,6 @@ HWND Text(HWND hWnd,DWORD dwStyle,LPCWSTR lpszText,int x,int y,
 			hWnd,0,0,0);
   return hText;
 }
-
 void Menu(HMENU hMenu,HMENU hSubMenu,UINT wID,LPWSTR dwTypeData,UINT cch)
 {
 	MENUITEMINFO mii;
@@ -67,7 +63,6 @@ void Menu(HMENU hMenu,HMENU hSubMenu,UINT wID,LPWSTR dwTypeData,UINT cch)
 	mii.hSubMenu=hSubMenu;
 	InsertMenuItem(hMenu,0,TRUE,&mii);
 }
-
 void SubMenu(HMENU hSubMenu,UINT wID,LPWSTR dwTypeData,UINT cch)
 {
 	MENUITEMINFO mii;
