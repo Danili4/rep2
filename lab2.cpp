@@ -21,7 +21,8 @@ int WINAPI WinMain(HINSTANCE hInstance,
 					int nCmdShow)
 {
 	InitCommonControls();
-	HWND hWnd=Window(szWndClass1,(LPCWSTR)L"Win32 Application",WndProc,600,320,hInstance,nCmdShow);
+	HWND hWnd=Window(szWndClass1,(LPCWSTR)L"Оценка программных характеристик алгоритмов",
+	WndProc,500,300,hInstance,nCmdShow);
 	CmdShow=nCmdShow;hInst=hInstance;HMENU hMenu1=CreateMenu();
 	HMENU hSubMenu2=CreateMenu();Menu(hMenu1,hSubMenu2,3,L"&File",4);
 	SubMenu(hSubMenu2,4,L"&Exit",4);SetMenu(hWnd,hMenu1);
@@ -49,9 +50,9 @@ int WINAPI WinMain(HINSTANCE hInstance,
 								5,180,20,20,hWnd,0,hInstance,0);
 	HWND hButton9=CreateWindowEx(0,L"BUTTON",L"Вычислить",WS_VISIBLE | WS_CHILD |BS_PUSHBUTTON,
 								90,25,80,20,hWnd,(HMENU)6,hInstance,0);
-	HWND hButton10=CreateWindowEx(0,L"BUTTON",L"V,Kb",WS_VISIBLE | WS_CHILD |BS_PUSHBUTTON,
+	HWND hButton10=CreateWindowEx(0,L"BUTTON",L"V,Кб",WS_VISIBLE | WS_CHILD |BS_PUSHBUTTON,
 								265,100,60,20,hWnd,0,hInstance,0);
-	HWND hButton11=CreateWindowEx(0,L"BUTTON",L"T,hours",WS_VISIBLE | WS_CHILD |BS_PUSHBUTTON,
+	HWND hButton11=CreateWindowEx(0,L"BUTTON",L"T,ч",WS_VISIBLE | WS_CHILD |BS_PUSHBUTTON,
 								325,100,60,20,hWnd,0,hInstance,0);
 	HWND hButton12=CreateWindowEx(0,L"BUTTON",L"m",WS_VISIBLE | WS_CHILD |BS_PUSHBUTTON,
 								385,100,60,20,hWnd,0,hInstance,0);
@@ -149,14 +150,14 @@ int Eval()
 	}
 	for(int i=0;i<4;i++)
 		{
-			n=swprintf(szText1,L"%f",(V[i])/(1024*8));
+			n=swprintf(szText1,L"%.4f",(V[i])/(1024*8));
 			Edit_SetText(hTable1[i][0],szText1);
-			n=swprintf(szText1,L"%f",(V[i])/3000);
+			n=swprintf(szText1,L"%.4f",(V[i])/3000);
 			Edit_SetText(hTable1[i][2],szText1);
 		}
 	for(int i=0;i<4;i++)
 		{
-			n=swprintf(szText1,L"%f",(T[i])/3600);
+			n=swprintf(szText1,L"%.4f",(T[i])/3600);
 			Edit_SetText(hTable1[i][1],szText1);
 		}	
 	return 0;
